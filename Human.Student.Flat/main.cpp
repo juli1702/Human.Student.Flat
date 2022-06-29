@@ -2,6 +2,7 @@
 #include "Header.h"
 #include <string>
 #include <ctime>
+#include <exception>
 
 int main() {
 	setlocale(LC_ALL, "Russian");
@@ -56,6 +57,19 @@ int main() {
 	std::cout << "Список жильцов: ";
 	f2.ListRes();
 	std::cout << "\n";
+	try {
+		f2.setNum(-5);
 
+	}
+	catch (std::range_error& ex) {
+		std::cerr << ex.what() << std::endl;
+	}
+
+	try {
+		f1.setArea(0);
+	}
+	catch(std::range_error& ex) {
+		std::cerr << ex.what();
+	}
 	return 0;
 }

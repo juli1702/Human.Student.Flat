@@ -160,14 +160,20 @@ std::string Flat::getAdress()const {
 }
 void Flat::setNum(int num) {
 	_numberR = num;
+	if (num <= 0) {
+		throw  std::range_error("1.Invalid argument");
+	}
 }
-int Flat::getNum() const {
+int Flat::getNum() const noexcept {
 	return _numberR;
 }
 void Flat::setArea(double area) {
 	_area = area;
+	if (area <= 0) {
+		throw  std::range_error("2.Invalid argument");
+	}
 }
-double Flat::getArea()const {
+double Flat::getArea()const noexcept{
 	return _area;
 }
 void Flat::ListRes() {
